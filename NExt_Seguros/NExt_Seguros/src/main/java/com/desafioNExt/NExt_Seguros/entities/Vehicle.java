@@ -1,7 +1,13 @@
 package com.desafioNExt.NExt_Seguros.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,13 +18,47 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
+@Table(name = "vehicles")
 public class Vehicle {
-    
+    private static final String name = null;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "vehicle_id", nullable = false, updatable = false, unique = true)
     private long id;
-	private String brand;
+    @Column(name = "vehicle_brand", nullable = false)
+    private String brand;
+    @Column(name = "vehicle_model", nullable = false)
     private String model;
+    @Column(name = "vehicle_year", nullable = false)
     private int year;
 
-   }
+    @ManyToOne
+    @JoinColumn(name = "client_id", nullable = true)
+    private Client client;
+
+}
+
+
+
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
+//import lombok.AllArgsConstructor;
+//import lombok.Builder;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+
+//@Data
+//@Builder
+//@NoArgsConstructor
+//@AllArgsConstructor
+//@Entity
+
+//public class Vehicle {
+    
+//   @Id
+//   private long id;
+//	private String brand;
+//  private String model;
+//   private int year;
+
+  // }
