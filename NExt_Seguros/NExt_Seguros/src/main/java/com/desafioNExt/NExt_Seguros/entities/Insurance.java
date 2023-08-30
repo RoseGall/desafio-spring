@@ -2,6 +2,9 @@ package com.desafioNExt.NExt_Seguros.entities;
 
 import java.util.Date;
 
+import com.desafioNExt.NExt_Seguros.enums.InsuranceAnalysis;
+import com.desafioNExt.NExt_Seguros.enums.InsuranceType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -22,22 +25,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "insurances")
+@Table(name = "insurance")
 
 public class Insurance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "insurance_id", nullable = false, updatable = false, unique = true)
+    @Column(name = "id", nullable = false, updatable = false, unique = true)
     private long id;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "insurance_type")
-    private Insurance_Type insurance_type;
+    @Column(name = "type")
+    private InsuranceType type;
     @Enumerated(EnumType.STRING)
-    @Column(name = "insurance_analysis")
-    private Insurance_Type insurance_analysis;
+    @Column(name = "analysis")
+    private InsuranceAnalysis analysis;
     
-    @Column(name = "insurance_observation", nullable = true)
+    @Column(name = "observation", nullable = true)
     private String observation;
 	private Date createdAt;
 	private Date validatedAt;

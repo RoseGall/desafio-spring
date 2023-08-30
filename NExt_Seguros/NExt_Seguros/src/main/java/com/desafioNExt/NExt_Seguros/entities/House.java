@@ -1,5 +1,7 @@
 package com.desafioNExt.NExt_Seguros.entities;
 
+import com.desafioNExt.NExt_Seguros.enums.OwnershipStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -24,43 +26,21 @@ import lombok.NoArgsConstructor;
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "house_id", nullable = false, updatable = false, unique = true)
+    @Column(name = "id", nullable = false, updatable = false, unique = true)
     private long id;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "house_ownership_status", nullable = false)
-    private Ownership_Status ownership_status;
-    @Column(name = "house_location", nullable = false)
+    @Column(name = "ownership_status", nullable = false)
+    private OwnershipStatus ownership_status;
+
+    @Column(name = "location", nullable = false)
     private String location;
-    @Column(name = "house_zipcode", nullable = false)
+    
+    @Column(name = "zipcode", nullable = false)
     private String zipcode;
 
     @ManyToOne
-    @JoinColumn(name = "client_id", nullable = true)
+    @JoinColumn(name = "id", nullable = true)
     private Client client;
 }
 
-
-//******************************************
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.Id;
-//import lombok.AllArgsConstructor;
-//import lombok.Builder;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-
-//@Data
-//@Builder
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Entity
-
-//public class House {
-    
- //   @Id
- //   private long id;
-//	private String ownership_status;
- //   private String location;
- //    private String zipcode ;
-    //  adicionar o relacionamento (many to one, one to many...)
-  
-//}

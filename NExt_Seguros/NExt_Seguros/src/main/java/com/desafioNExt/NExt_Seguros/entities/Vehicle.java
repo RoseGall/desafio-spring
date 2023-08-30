@@ -23,42 +23,17 @@ public class Vehicle {
     private static final String name = null;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vehicle_id", nullable = false, updatable = false, unique = true)
+    @Column(name = "id", nullable = false, updatable = false, unique = true)
     private long id;
-    @Column(name = "vehicle_brand", nullable = false)
+    @Column(name = "brand", nullable = false)
     private String brand;
-    @Column(name = "vehicle_model", nullable = false)
+    @Column(name = "model", nullable = false)
     private String model;
-    @Column(name = "vehicle_year", nullable = false)
+    @Column(name = "year", nullable = false)
     private int year;
 
     @ManyToOne
-    @JoinColumn(name = "client_id", nullable = true)
+    @JoinColumn(name = "id", nullable = true)
     private Client client;
 
 }
-
-
-
-//import jakarta.persistence.Entity;
-//import jakarta.persistence.Id;
-//import lombok.AllArgsConstructor;
-//import lombok.Builder;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-
-//@Data
-//@Builder
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Entity
-
-//public class Vehicle {
-    
-//   @Id
-//   private long id;
-//	private String brand;
-//  private String model;
-//   private int year;
-
-  // }

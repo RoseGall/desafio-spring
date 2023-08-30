@@ -1,8 +1,11 @@
 package com.desafioNExt.NExt_Seguros.entities;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+
+import com.desafioNExt.NExt_Seguros.enums.MaritalStatus;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,25 +29,25 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "clients")
+@Table(name = "client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "client_id", nullable = false, updatable = false, unique = true)
+    @Column(name = "id", nullable = false, updatable = false, unique = true)
     private long id;
-    @Column(name = "client_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "client_age", nullable = false)
+    @Column(name = "age", nullable = false)
     private int age;
-    @Column(name = "client_dependents", nullable = false)
+    @Column(name = "dependents", nullable = false)
     private int dependents;
-    @Column(name = "client_income", nullable = false)
+    @Column(name = "income", nullable = false)
     private double income;
     @Enumerated(EnumType.STRING)
-    @Column(name = "client_marital_status")
-    private Marital_Status marital_status;
-    private Date createdAt;
-    private Date updatedAt;
+    @Column(name = "marital_status")
+    private MaritalStatus marital_status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy =  "client")
     private List<Vehicle> vehicles;
