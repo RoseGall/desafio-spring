@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "houses")
+
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
